@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '../../lib/axios'
 import * as constants from '../constants'
 
 export const getUserinfoRequest = () => {
@@ -20,8 +20,9 @@ export const getUserInfo = () => {
     return (dispatch) => {
         dispatch(getUserinfoRequest())
 
-        return axios.post(`http://localhost:3000/api/getUser`, {username: 'yufeng'}).then(data => {
+        return axios.post(`/getUser`, {username: 'yufeng'}).then(data => {
             let res = data.data
+            console.log(res)
             if(res.code === 0){
                 setTimeout(() => {
                     dispatch(getUserinfoSuccess(res.data))
