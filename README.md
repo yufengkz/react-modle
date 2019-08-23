@@ -108,6 +108,7 @@ yarn build-prod 生产环境打包
 
 ### 项目使用 Nprogress
 ```
+# index.html手动引入 nprogress.css
 yarn add nprogress
 ```
 
