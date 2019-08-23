@@ -41,7 +41,7 @@ const lessModuleRegex = /\.module\.less$/; // 新增less配置，这个其实不
 
 ### 配置多环境 dev tet prod[https://blog.csdn.net/qq_35844177/article/details/80519513]
 ```
-# 根目录下创建 .env.development .env.test .env.production, 且script目录下创建对应的配置文件:
+# 根目录下创建 .env.development .env.test .env.production配置文件:
 .env.development 文件
 # 当前环境
 NODE_ENV=development
@@ -65,6 +65,12 @@ NODE_ENV=production
 .env.production 文件
 NODE_ENV=production
 ...
+```
+### 修改config/env.js
+```
+//有一个特殊的内置环境变量叫做NODE_ENV，你可以输出process.env.NODE_ENV，但无法手动覆盖NODE_ENV。这可以防止开发人员意外地将缓慢的开发构建部署到生产环境中。
+// const NODE_ENV = process.env.NODE_ENV;
+const NODE_ENV = process.env.REACT_APP_ENV || process.env.NODE_ENV;
 ```
 
 ### 安装项目打包后分析插件
